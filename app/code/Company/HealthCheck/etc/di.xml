@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Company. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Company\HealthCheck\Api\HealthCheckInterface"
+                type="Company\HealthCheck\Model\HealthCheck"/>
+    <preference for="Company\HealthCheck\Api\Data\HealthStatusInterface"
+                type="Company\HealthCheck\Model\Data\HealthStatus"/>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="company_health_check" xsi:type="object">Company\HealthCheck\Console\Command\HealthCheckCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
